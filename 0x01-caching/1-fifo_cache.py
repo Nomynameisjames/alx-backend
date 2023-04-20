@@ -45,8 +45,7 @@ class FIFOCache(base_caching):
         if len(self.cache_data) > base_caching.MAX_ITEMS:
             waste = list(self.cache_data.keys())[0]
             print(f"DISCARD: {waste}")
-            remove_overflow = self.cache_data[list(self.cache_data.keys())[0]]
-            del remove_overflow
+            del self.cache_data[list(self.cache_data.keys())[0]]
 
     def get(self, key):
         """

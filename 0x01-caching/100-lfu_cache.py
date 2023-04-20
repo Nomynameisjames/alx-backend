@@ -41,7 +41,7 @@ class LFUCache(base_caching):
         super().__init__()
         self.cache_data = {}
         self.cache_freq = {}
-    
+
     def put(self, key, item):
         """
             objective 3

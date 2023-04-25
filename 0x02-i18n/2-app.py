@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """import files """
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
-from flask import request
 import os
 
 
@@ -24,14 +23,10 @@ app.config.from_object(Config)
 """ creating an instance of the Babel class"""
 babel = Babel(app)
 
-"""
-    setting up get_locale function with the babel.localeselector decorator.
-    Using request.accept_languages to determine the best match
-    with our supported languages.
-"""
+
 @babel.localeselector
 def get_locale():
-    '''get_locale'''
+    """return best language match based on supported languages"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])i
 
 

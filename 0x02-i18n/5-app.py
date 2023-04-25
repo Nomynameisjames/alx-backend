@@ -50,7 +50,7 @@ def before_request():
     """
         find a user if any, and set it as a global on flask.g.user.
     """
-    Usere = get_user()
+    User = get_user()
     g.user = User
 
 
@@ -68,7 +68,7 @@ def get_locale():
 @app.route('/')
 def index():
     '''flask route index.html'''
-    return render_template('4-index.html')
+    return render_template('5-index.html')
 
 
 if __name__ == '__main__':

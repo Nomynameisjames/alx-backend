@@ -3,36 +3,31 @@
 from flask import Flask, render_template
 from flask_babel import Babel
 import os
+
+
+class Config(object):
+    """
+        Babel   Configuration
+    """
+    LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
+
+
 """
     creating a flask app instance
 """
 
 app = Flask(__name__)
-
+app.config.from_object(Config)
 """ creating an instance of the Babel class"""
 babel = Babel(app)
-
-""" creating a config class """
-
-
-class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    LANGUAGES = ["en", "fr"]
-
-    @staticmethod
-    def init_app(app): pass
-
-
-config = Config()
-""" setting a default language with the config class"""
-app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-app.config['BABEL_DEFAULT_LOCALE'] = 'UTC'
 
 
 @app.route('/')
 def index():
     '''flask route index.html'''
-    return render_template('0-index.html')
+    return render_template('1-index.html')
 
 
 if __name__ == '__main__':

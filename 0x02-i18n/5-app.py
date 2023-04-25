@@ -40,8 +40,8 @@ def get_user():
         if the ID cannot be found or if login_as was not passed.
     """
     ID = request.args.get('login_as', None)
-    if ID is not None and ID in users.keys():
-        return users.get(ID)
+    if ID is not None and int(ID) in users.keys():
+        return users.get(int(ID))
     return None
 
 

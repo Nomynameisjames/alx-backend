@@ -23,6 +23,7 @@ class Config:
     def init_app(app): pass
 
 
+config = Config()
 """ setting a default language with the config class"""
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.config['BABEL_DEFAULT_LOCALE'] = 'UTC'
